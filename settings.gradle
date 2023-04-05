@@ -1,0 +1,5 @@
+rootProject.name = 'MyBank'
+include 'api-gateway'
+include 'customer-service'
+include 'savings-account-service'
+
