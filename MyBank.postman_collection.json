@@ -1,0 +1,606 @@
+{
+	"info": {
+		"_postman_id": "64e079a9-de25-401e-9750-841ded53526f",
+		"name": "MyBank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api-gateway",
+			"item": [
+				{
+					"name": "Signup",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\":\"Manish\",\n    \"password\":\"password\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9050/customer/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9050",
+							"path": [
+								"customer",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Signup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customerName\":\"Manish\",\n    \"password\":\"password\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:9050/customer/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9050",
+									"path": [
+										"customer",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "16"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Apr 2023 19:26:19 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "customer created"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\":\"Manish\",\n    \"password\":\"password\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9050/customer/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9050",
+							"path": [
+								"customer",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customerName\":\"Manish\",\n    \"password\":\"password\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:9050/customer/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9050",
+									"path": [
+										"customer",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Apr 2023 19:27:29 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Login successfully\",\n    \"token\": \"eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxIiwic3ViIjoiTWFuaXNoIiwiaWF0IjoxNjgwOTgyMDQ5LCJleHAiOjE2ODA5ODU2NDl9.0xhro3RAzp2XORPBRIAPY7YVSqsxZ2cw2QZuHwgXWzY5TWWzV1-pUiMUCbmLK7uVOQ0SA23YwSyb4aL1WFl_Dw\"\n}"
+						}
+					]
+				},
+				{
+					"name": "openNewAccount",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxIiwic3ViIjoiTWFuaXNoIiwiaWF0IjoxNjgxMDM0MzUwLCJleHAiOjE2ODEwMzc5NTB9.9k-3Wn7GFCpC0ZoqK384dMD-apIyDH6QrJj1GmJoUjEEZY4T7lqmFm4rciRK0hgSpFdhHdXAURiIj1YAaKPDbw",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9050/savings/openNewAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9050",
+							"path": [
+								"savings",
+								"openNewAccount"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "openNewAccount",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxIiwic3ViIjoiTWFuaXNoIiwiaWF0IjoxNjgxMDMwNjgyLCJleHAiOjE2ODEwMzQyODJ9.Q2aN03yEU_XCUjwWFYYkF1cxUkSUXkabWS36Qmzf9-s-MGCIfcKNhFPQQ5FCEDdB9i0YIseVMbcesS3iChzhkA",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:9050/savings/openNewAccount",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9050",
+									"path": [
+										"savings",
+										"openNewAccount"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 09 Apr 2023 09:18:47 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"customerId\": 1,\n    \"accountNumber\": \"6351705784024\",\n    \"homeBranch\": \"Copenhagen Denmark\",\n    \"createdAt\": \"2023-04-09T09:18:47.428+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "deposit",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxIiwic3ViIjoiTWFuaXNoIiwiaWF0IjoxNjgxMDM0MzUwLCJleHAiOjE2ODEwMzc5NTB9.9k-3Wn7GFCpC0ZoqK384dMD-apIyDH6QrJj1GmJoUjEEZY4T7lqmFm4rciRK0hgSpFdhHdXAURiIj1YAaKPDbw",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"accountNumber\":\"5112106099080\",\n   \"amount\":200,\n   \"narration\":\"Test deposit\",\n   \"transactionType\":\"DEPOSIT\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9050/savings/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9050",
+							"path": [
+								"savings",
+								"transaction"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deposit",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxIiwic3ViIjoiTWFuaXNoIiwiaWF0IjoxNjgxMDMwNjgyLCJleHAiOjE2ODEwMzQyODJ9.Q2aN03yEU_XCUjwWFYYkF1cxUkSUXkabWS36Qmzf9-s-MGCIfcKNhFPQQ5FCEDdB9i0YIseVMbcesS3iChzhkA",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"accountNumber\":\"9472133636666\",\n   \"amount\":500,\n   \"narration\":\"Test deposit-3\",\n   \"transactionType\":\"DEPOSIT1\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:9050/savings/transaction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9050",
+									"path": [
+										"savings",
+										"transaction"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 09 Apr 2023 09:01:50 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"savingsId\": 1,\n    \"amount\": 500,\n    \"narration\": \"Test deposit-3\",\n    \"createdAt\": \"2023-04-09T09:01:50.885+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "withdraw",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxIiwic3ViIjoiTWFuaXNoIiwiaWF0IjoxNjgxMDM0MzUwLCJleHAiOjE2ODEwMzc5NTB9.9k-3Wn7GFCpC0ZoqK384dMD-apIyDH6QrJj1GmJoUjEEZY4T7lqmFm4rciRK0hgSpFdhHdXAURiIj1YAaKPDbw",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"accountNumber\":\"6532294806061\",\n   \"amount\":60,\n   \"narration\":\"Test withdraw\",\n   \"transactionType\":\"WITHDRAW\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9050/savings/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9050",
+							"path": [
+								"savings",
+								"transaction"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "withdraw",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxIiwic3ViIjoiTWFuaXNoIiwiaWF0IjoxNjgxMDMwNjgyLCJleHAiOjE2ODEwMzQyODJ9.Q2aN03yEU_XCUjwWFYYkF1cxUkSUXkabWS36Qmzf9-s-MGCIfcKNhFPQQ5FCEDdB9i0YIseVMbcesS3iChzhkA",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"accountNumber\":\"9472133636666\",\n   \"amount\":10,\n   \"narration\":\"Test withdraw\",\n   \"transactionType\":\"WITHDRAW\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:9050/savings/transaction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9050",
+									"path": [
+										"savings",
+										"transaction"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 09 Apr 2023 09:03:27 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 6,\n    \"savingsId\": 1,\n    \"amount\": -10,\n    \"narration\": \"Test withdraw\",\n    \"createdAt\": \"2023-04-09T09:03:27.586+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "transactionList",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxIiwic3ViIjoiTWFuaXNoIiwiaWF0IjoxNjgxMDM0MzUwLCJleHAiOjE2ODEwMzc5NTB9.9k-3Wn7GFCpC0ZoqK384dMD-apIyDH6QrJj1GmJoUjEEZY4T7lqmFm4rciRK0hgSpFdhHdXAURiIj1YAaKPDbw",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9050/savings/transactionList/11?accountNumber=5112106099080&page=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9050",
+							"path": [
+								"savings",
+								"transactionList",
+								"11"
+							],
+							"query": [
+								{
+									"key": "accountNumber",
+									"value": "5112106099080"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "transactionList",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxIiwic3ViIjoiTWFuaXNoIiwiaWF0IjoxNjgxMDM0MzUwLCJleHAiOjE2ODEwMzc5NTB9.9k-3Wn7GFCpC0ZoqK384dMD-apIyDH6QrJj1GmJoUjEEZY4T7lqmFm4rciRK0hgSpFdhHdXAURiIj1YAaKPDbw",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:9050/savings/transactionList?accountNumber=4151125205079&page=0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9050",
+									"path": [
+										"savings",
+										"transactionList"
+									],
+									"query": [
+										{
+											"key": "accountNumber",
+											"value": "4151125205079"
+										},
+										{
+											"key": "page",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 09 Apr 2023 10:02:23 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"content\": [\n        {\n            \"id\": 1,\n            \"savingsId\": 1,\n            \"amount\": 200,\n            \"narration\": \"Test deposit\",\n            \"createdAt\": \"2023-04-09T10:00:28.688+00:00\"\n        },\n        {\n            \"id\": 2,\n            \"savingsId\": 1,\n            \"amount\": 200,\n            \"narration\": \"Test deposit\",\n            \"createdAt\": \"2023-04-09T10:00:30.895+00:00\"\n        },\n        {\n            \"id\": 3,\n            \"savingsId\": 1,\n            \"amount\": 200,\n            \"narration\": \"Test deposit\",\n            \"createdAt\": \"2023-04-09T10:01:15.863+00:00\"\n        },\n        {\n            \"id\": 4,\n            \"savingsId\": 1,\n            \"amount\": -60,\n            \"narration\": \"Test withdraw\",\n            \"createdAt\": \"2023-04-09T10:01:22.561+00:00\"\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"offset\": 0,\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"last\": true,\n    \"totalPages\": 1,\n    \"totalElements\": 4,\n    \"first\": true,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": true,\n        \"sorted\": false,\n        \"unsorted\": true\n    },\n    \"numberOfElements\": 4,\n    \"empty\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "check-balance",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxIiwic3ViIjoiTWFuaXNoIiwiaWF0IjoxNjgxMDM0MzUwLCJleHAiOjE2ODEwMzc5NTB9.9k-3Wn7GFCpC0ZoqK384dMD-apIyDH6QrJj1GmJoUjEEZY4T7lqmFm4rciRK0hgSpFdhHdXAURiIj1YAaKPDbw",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9050/savings/getBalance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9050",
+							"path": [
+								"savings",
+								"getBalance"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
