@@ -4,10 +4,12 @@ import org.my.bank.dto.Savings;
 import org.my.bank.dto.SavingsDetails;
 import org.my.bank.dto.custom.TransactionDto;
 import org.my.bank.dto.custom.TransactionType;
+import org.my.bank.exception.CustomException;
 import org.my.bank.repository.SavingsDetailsRepository;
 import org.my.bank.repository.SavingsRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -35,10 +37,10 @@ public class SavingsService {
         return savingsRepository.save(newAccount);
     }
 
-    public SavingsDetails depositOrWithdrawMoney(TransactionDto transactionDto, Long customerId) throws Exception {
+    public SavingsDetails depositOrWithdrawMoney(TransactionDto transactionDto, Long customerId) throws CustomException {
         //Check amount
         if (transactionDto.getAmount() < 1) {
-            throw new Exception("Amount must be greater than zero");
+            throw new CustomException("Amount must be greater than zero", HttpStatus.BAD_REQUEST);
         }
         //Verify account
         Long savingsId = getSavingsIdAndVerifyCustomer(transactionDto.getAccountNumber(), customerId);
@@ -52,35 +54,35 @@ public class SavingsService {
             //check if customer have enough balance
             Long balance = savingsDetailsRepository.getBalance(savingsId);
             if (balance == null || transactionDto.getAmount() > balance) {
-                throw new Exception("You do not have enough balance");
+                throw new CustomException("You do not have enough balance", HttpStatus.BAD_REQUEST);
             }
             savingsDetails.setAmount(-transactionDto.getAmount());
         } else {
-            throw new Exception("Transaction types not found");
+            throw new CustomException("Transaction types not found", HttpStatus.BAD_REQUEST);
         }
         return savingsDetailsRepository.save(savingsDetails);
     }
 
-    public Page<SavingsDetails> findSavingDetailsByAccountNumber(String accountNumber, Pageable pageable, Long customerId) throws Exception {
+    public Page<SavingsDetails> findSavingDetailsByAccountNumber(String accountNumber, Pageable pageable, Long customerId) throws CustomException {
         //Verify account
         Long savingsId = getSavingsIdAndVerifyCustomer(accountNumber, customerId);
         return savingsDetailsRepository.findBySavingsId(pageable, savingsId);
     }
 
-    public Long getBalance(String accountNumber, Long customerId) throws Exception {
+    public Long getBalance(String accountNumber, Long customerId) throws CustomException {
         //Verify account
         Long savingsId = getSavingsIdAndVerifyCustomer(accountNumber, customerId);
         return savingsDetailsRepository.getBalance(savingsId);
     }
 
-    private Long getSavingsIdAndVerifyCustomer(String accountNumber, Long customerId) throws Exception {
+    private Long getSavingsIdAndVerifyCustomer(String accountNumber, Long customerId) throws CustomException {
         //Verify if user is owner of account
         Optional<Savings> savingsOptional = savingsRepository.findByAccountNumber(accountNumber);
         if (savingsOptional.isEmpty()) {
-            throw new Exception("Account Does not exist");
+            throw new CustomException("Account Does not exist", HttpStatus.NOT_FOUND);
         }
         if (!Objects.equals(savingsOptional.get().getCustomerId(), customerId)) {
-            throw new Exception("Customer not authorized to do transaction");
+            throw new CustomException("Customer not authorized to do transaction", HttpStatus.FORBIDDEN);
         }
         return savingsOptional.get().getId();
     }

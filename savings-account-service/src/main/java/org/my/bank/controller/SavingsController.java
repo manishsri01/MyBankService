@@ -4,6 +4,7 @@ import io.micrometer.common.util.StringUtils;
 import org.my.bank.dto.Savings;
 import org.my.bank.dto.SavingsDetails;
 import org.my.bank.dto.custom.TransactionDto;
+import org.my.bank.exception.CustomException;
 import org.my.bank.service.SavingsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,9 +60,9 @@ public class SavingsController {
             }
             LOGGER.info("depositOrWithdrawMoney end!");
             return new ResponseEntity<>(result, HttpStatus.OK);
-        } catch (Exception e) {
+        } catch (CustomException e) {
             LOGGER.error("Error", e);
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+            return new ResponseEntity<>(e.getMessage(), e.getStatus());
         }
     }
 
@@ -82,9 +83,9 @@ public class SavingsController {
             }
             LOGGER.info("findSavingDetailsByAccountNumber end!");
             return new ResponseEntity<>(result, HttpStatus.OK);
-        } catch (Exception e) {
+        } catch (CustomException e) {
             LOGGER.error("Error", e);
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+            return new ResponseEntity<>(e.getMessage(), e.getStatus());
         }
     }
 
@@ -103,9 +104,9 @@ public class SavingsController {
             }
             LOGGER.info("getBalance end!");
             return new ResponseEntity<>(result, HttpStatus.OK);
-        } catch (Exception e) {
+        } catch (CustomException e) {
             LOGGER.error("Error", e);
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+            return new ResponseEntity<>(e.getMessage(), e.getStatus());
         }
     }
 
